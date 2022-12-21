@@ -1,7 +1,7 @@
 // import { exportAllDeclaration } from '@babel/types';
 // import test from 'node:test';
 // import { describe } from 'yargs';
-import Triangle from './../src/triangle.js';
+import Triangle from '../src/js/triangle.js';
 
 describe('Triangle', () => {
   test('should correctly create a triangle object with three lengths', () => {
