@@ -1,7 +1,8 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Triangle from './triangle.js';
+import Triangle from '../triangle.js';
+import Rectangle from './js/rectangle';
 
 
 function handleTriangleForm(event) {
@@ -13,10 +14,22 @@ function handleTriangleForm(event) {
   const triangle = new Triangle(length1, length2, length3);
   const response = triangle.checkType();
   const pTag = document.createElement("p");
-  pTag.append(response);
+  pTag.append(`Your result is: ${response}.`);
   document.querySelector('#response').append(pTag);
+}
+
+function handleRectangleForm(event) {
+  event.preventDefault();
+  document.querySelector('#response2').innerText = null;
+  const length1 = parseInt(document.querySelector('#rect-length1').value);
+  const length2 = parseInt(document.querySelector('#rect-length2').value);
+  const rectangle = new Rectangle(length1, length2);
+  const response = rectangle.getArea();
+  const pTag = document.createElement("p");
+  pTag.append(`The area of the rectangle is ${response}.`);
 }
 
 window.addEventListener("load", function() {
   document.querySelector("#triangle-checker-form").addEventListener("submit", handleTriangleForm);
+  document.querySelector("rectangle-area-form").addEventListener("submit", handleRectangleForm);
 });
